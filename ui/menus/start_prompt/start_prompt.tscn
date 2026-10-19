@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bvgje3ijwo08c"]
+
+[ext_resource type="Script" uid="uid://bpeai01cxeiqb" path="res://ui/menus/start_prompt/start_prompt.gd" id="1_qu072"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yfss4"]
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_xaw3m"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Label:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_sydc4"]
+resource_name = "flash"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Label:modulate:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_82ijd"]
+_data = {
+&"RESET": SubResource("Animation_xaw3m"),
+&"flash": SubResource("Animation_sydc4")
+}
+
+[node name="StartPrompt" type="Control" unique_id=1681230188 node_paths=PackedStringArray("_animation_player", "_flashing_node", "_delay_timer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+script = ExtResource("1_qu072")
+_animation_player = NodePath("AnimationPlayer")
+_flashing_node = NodePath("MarginContainer/Label")
+_delay_timer = NodePath("DelayTimer")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1395210465]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=864842271]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Press any button to start"
+label_settings = SubResource("LabelSettings_yfss4")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=303163078]
+libraries/ = SubResource("AnimationLibrary_82ijd")
+
+[node name="DelayTimer" type="Timer" parent="." unique_id=1184733202]
+one_shot = true
+
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="timeout" from="DelayTimer" to="." method="_on_delay_timer_timeout"]

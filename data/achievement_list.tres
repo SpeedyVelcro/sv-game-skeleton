@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AchievementList" format=3 uid="uid://7mrth6n0plh7"]
+
+[ext_resource type="Script" uid="uid://bfkrw11bj6wk" path="res://addons/sv_achievements/data/achievement/achievement.gd" id="1_1ygbx"]
+[ext_resource type="Script" uid="uid://dux30a2ax0nyt" path="res://addons/sv_achievements/data/achievement_list/achievement_list.gd" id="2_xf5j8"]
+
+[resource]
+script = ExtResource("2_xf5j8")
+metadata/_custom_type_script = "uid://dux30a2ax0nyt"

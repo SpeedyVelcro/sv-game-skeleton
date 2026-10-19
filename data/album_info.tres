@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AlbumInfo" format=3 uid="uid://bsvw72mwuh41p"]
+
+[ext_resource type="Script" uid="uid://chvpucuf8rp7d" path="res://addons/sv_jukebox/data/album_disc_info.gd" id="1_gdbs4"]
+[ext_resource type="Script" uid="uid://ctgnm5iymuhhy" path="res://addons/sv_jukebox/data/track_info.gd" id="2_fiihs"]
+[ext_resource type="Script" uid="uid://c4mywst67rhre" path="res://addons/sv_jukebox/data/album_info.gd" id="3_oum0b"]
+
+[resource]
+script = ExtResource("3_oum0b")
+metadata/_custom_type_script = "uid://c4mywst67rhre"

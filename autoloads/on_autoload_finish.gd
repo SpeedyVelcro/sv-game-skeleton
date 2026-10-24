@@ -12,9 +12,9 @@ extends Node
 
 # Override
 func _ready() -> void:
+	var config := OptionsConfigProvider.get_config()
+	
 	if OS.has_feature("web"):
-		var config := OptionsConfigProvider.get_config()
-		
 		config.manage_resolution = false
 		config.manage_window_mode = false
 		config.manage_screen = false
@@ -23,6 +23,18 @@ func _ready() -> void:
 		# need for scaling. Users who need more granular display settings are
 		# advised to use the desktop version.
 		get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
+	
+	var default_resolution = config.calculate_default_resolution()
+	
+	# I would like the UI to just expand rather than scale up to 1080p, so
+	# players can make use of the extra space (on UI elements that do happen to
+	# expand)
+	if default_resolution.y < 720:
+		config.default_ui_scale = default_resolution.y / 720
+	elif default_resolution.y > 1080:
+		config.default_ui_scale = default_resolution.y / 1080
+	else:
+		config.default_ui_scale = 1.0
 	
 	OptionsLifecycle.start_up()
 	

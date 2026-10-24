@@ -15,10 +15,10 @@ func _notification(what: int) -> void:
 	
 	match what:
 		NOTIFICATION_WM_CLOSE_REQUEST, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_CRASH:
-			OptionsSaver.save()
+			_on_quit()
 		NOTIFICATION_WM_GO_BACK_REQUEST:
 			if ProjectSettings.get_setting_with_override("application/config/quit_on_go_back"):
-				OptionsSaver.save()
+				_on_quit()
 
 
 ## Manually invoke the on-quit handling. This should be called before calling
@@ -28,4 +28,6 @@ func invoke_on_quit() -> void:
 
 
 func _on_quit() -> void:
-	pass # TODO: Put on quit handling here
+	OptionsSaver.save()
+	
+	# TODO: Put any further on-quit handling here.

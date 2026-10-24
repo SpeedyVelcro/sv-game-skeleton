@@ -1,4 +1,4 @@
-class_name _MainMenu
+class_name _TitleScreen
 extends Node
 ## The game's main menu screen.
 ##
@@ -13,43 +13,51 @@ extends Node
 
 @export_group("Internal")
 @export var _start_prompt: _StartPrompt
-@export var _landing_menu: _LandingMenu
+@export var _main_menu: _MainMenu
+@export var _options_menu: _OptionsMenu
 
 
 # Signal connection
 func _on_start_prompt_pressed() -> void:
-	_landing_menu.visible = true
+	_main_menu.visible = true
 
 
 # Signal connection
-func _on_landing_menu_play_pressed() -> void:
+func _on_main_menu_play_pressed() -> void:
 	pass # TODO
 
 
 # Signal connection
-func _on_landing_menu_achievements_pressed() -> void:
+func _on_main_menu_achievements_pressed() -> void:
 	pass # TODO
 
 
 # Signal connection
-func _on_landing_menu_jukebox_pressed() -> void:
+func _on_main_menu_jukebox_pressed() -> void:
 	pass # TODO
 
 
 # Signal connection
-func _on_landing_menu_options_pressed() -> void:
+func _on_main_menu_options_pressed() -> void:
+	_main_menu.visible = false
+	_options_menu.visible = true
+
+
+# Signal connection
+func _on_main_menu_about_pressed() -> void:
 	pass # TODO
 
 
 # Signal connection
-func _on_landing_menu_about_pressed() -> void:
-	pass # TODO
-
-
-# Signal connection
-func _on_landing_menu_quit_pressed() -> void:
+func _on_main_menu_quit_pressed() -> void:
 	if OS.has_feature("web"):
-		_landing_menu.visible = false
+		_main_menu.visible = false
 		_start_prompt.activate()
 	else:
 		Quitter.quit()
+
+
+# Signal connection
+func _on_options_menu_back() -> void:
+	_options_menu.visible = false
+	_main_menu.visible = true

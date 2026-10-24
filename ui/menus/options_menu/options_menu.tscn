@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dyuls84burhpn"]
+
+[ext_resource type="PackedScene" uid="uid://cg3sk7atw1rs3" path="res://addons/sv_options_menu/ui/window_settings_ui/window_settings_ui.tscn" id="1_csl58"]
+[ext_resource type="Script" uid="uid://dp45fi5wxxay5" path="res://ui/menus/options_menu/options_menu.gd" id="1_xl1x0"]
+[ext_resource type="PackedScene" uid="uid://cdbcshvsjv1lc" path="res://addons/sv_options_menu/ui/vsync_settings_ui/vsync_settings_ui.tscn" id="2_8oxc3"]
+[ext_resource type="PackedScene" uid="uid://pkttw81dcu53" path="res://addons/sv_options_menu/ui/ui_scaling_settings_ui/ui_scaling_settings_ui.tscn" id="3_44wlx"]
+[ext_resource type="PackedScene" uid="uid://i6168hsfkqt" path="res://addons/sv_options_menu/ui/volume_settings_ui/volume_settings_ui.tscn" id="4_xl1x0"]
+[ext_resource type="PackedScene" uid="uid://dtor8bby8jyrj" path="res://addons/sv_options_menu/ui/input_map_settings_ui/input_map_settings_ui.tscn" id="5_mtexi"]
+
+[node name="OptionsMenu" type="Control" unique_id=50247623 node_paths=PackedStringArray("_tab_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xl1x0")
+_tab_container = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1240695635]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1567064748]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1246197701]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=682823786]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=585784282]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "About"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2066491875]
+custom_minimum_size = Vector2(512, 384)
+layout_mode = 2
+current_tab = 0
+clip_tabs = false
+
+[node name="Display" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=302109264]
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Display" unique_id=1238419323]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Display/MarginContainer" unique_id=137488401]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Display/MarginContainer/VBoxContainer" unique_id=14885293]
+layout_mode = 2
+text = "Window Settings"
+horizontal_alignment = 1
+
+[node name="WindowSettingsUI" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Display/MarginContainer/VBoxContainer" unique_id=1430727212 instance=ExtResource("1_csl58")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Display/MarginContainer/VBoxContainer" unique_id=1032987251]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Display/MarginContainer/VBoxContainer" unique_id=1075005177]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer" unique_id=470023603]
+layout_mode = 2
+text = "VSync"
+
+[node name="VsyncSettingsUI" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1092695597 instance=ExtResource("2_8oxc3")]
+layout_mode = 2
+
+[node name="Interface" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=1929173452]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Interface" unique_id=1941999601]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Interface/MarginContainer" unique_id=739993491]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Interface/MarginContainer/VBoxContainer" unique_id=253352185]
+layout_mode = 2
+text = "UI Scaling"
+horizontal_alignment = 1
+
+[node name="UIScalingSettingsUI" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Interface/MarginContainer/VBoxContainer" unique_id=1158959838 instance=ExtResource("3_44wlx")]
+layout_mode = 2
+size_flags_horizontal = 3
+allow_custom_value = true
+
+[node name="Sound" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=1108365718]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Sound" unique_id=663457048]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer" unique_id=1028113320]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer" unique_id=1659946595]
+layout_mode = 2
+text = "Volume Settings"
+horizontal_alignment = 1
+
+[node name="VolumeSettingsUI" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/VBoxContainer" unique_id=1616413023 instance=ExtResource("4_xl1x0")]
+layout_mode = 2
+
+[node name="Controls" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=269172894]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Controls" unique_id=958598181]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer" unique_id=1557288738]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" unique_id=1457126121]
+layout_mode = 2
+text = "Bindings"
+horizontal_alignment = 1
+
+[node name="InputMapSettingsUI" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/VBoxContainer" unique_id=1515047317 instance=ExtResource("5_mtexi")]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2137784906]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

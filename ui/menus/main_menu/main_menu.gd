@@ -1,4 +1,4 @@
-class_name _LandingMenu
+class_name _MainMenu
 extends Control
 ## Landing menu for the main menu.
 ##

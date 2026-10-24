@@ -25,8 +25,7 @@ Template project used for my games.
   - `NEWGROUNDS_AES_128_ENCRYPTION_KEY` from the API tools page on Newgrounds.
   - `PCK_ENCRYPTION_KEY`. Generate this using `openssl rand -hex 32`. (see
     [the docs](https://docs.godotengine.org/en/4.4/contributing/development/compiling/compiling_with_script_encryption_key.html#step-by-step))
-- Delete this section from `README.md` as it is no longer relevant.
-
+- Modify `README.md` as appropriate for your project.
 
 ## Release Process
 The pipeline will automatically create releases and tags when you push
@@ -45,4 +44,27 @@ directly, so run the following commands:
 ```bash
 git tag vX.X.X
 git push origin tag v0.0.0
+```
+
+## License
+Original work in this repository is dual-licensed under [MIT](LICENSES/MIT.txt)
+and [Unlicense](LICENSES/Unlicense.txt). You may choose which terms under which
+to use the original work in this repository.
+
+The repo is licensed this way because - being a template where you are expected 
+to modify files - I wanted to make it easy to integrate into your projects 
+without causing a tangled mess of attribution. Hence, the unlicense. The MIT 
+license is an alternative if you are not comfortable using the unlicense or need 
+a more mainstream license for some reason.
+
+Please note that this repository contains third-party components which may have
+different license terms. Please see the accompanying `LICENSE` file in the
+following directories:
+```
+addons/gamejolt
+addons/newgrounds
+addons/sv_about_menu
+addons/sv_achievements
+addons/sv_jukebox
+addons/sv_options_menu
 ```

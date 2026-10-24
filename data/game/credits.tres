@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SVAboutEntryCustom" format=3 uid="uid://c8njfsp3506le"]
+
+[ext_resource type="Script" uid="uid://bjgnxatvg3ldr" path="res://addons/sv_about_menu/data/sv_about_entry_custom.gd" id="1_cay6g"]
+
+[resource]
+script = ExtResource("1_cay6g")
+title = "Credits"
+description = "[b]SV Game Skeleton[/b]
+
+
+
+By SpeedyVelcro
+
+
+
+Made in the Godot Engine"
+metadata/_custom_type_script = "uid://bjgnxatvg3ldr"

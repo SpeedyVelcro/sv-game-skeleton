@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://cmb6dbe4e6wtk"]
+
+[ext_resource type="Script" uid="uid://bgpc0iy24r0jj" path="res://addons/sv_about_menu/ui/buttons_selector.gd" id="1_6oyne"]
+[ext_resource type="Script" uid="uid://chcoifbw6jjqf" path="res://ui/menus/about_menu/about_menu.gd" id="1_lee0o"]
+[ext_resource type="Script" uid="uid://b37gjky5xxyvp" path="res://addons/sv_about_menu/ui/selected_title_label.gd" id="2_6nif1"]
+[ext_resource type="Script" uid="uid://bg46ajnerbf57" path="res://addons/sv_about_menu/ui/selected_description_label.gd" id="3_7kfhy"]
+[ext_resource type="Script" uid="uid://ctfwwsw3uisos" path="res://addons/sv_about_menu/ui/ui_controller.gd" id="4_6nif1"]
+[ext_resource type="Resource" uid="uid://5fqkdtk0386" path="res://data/game/game_info.tres" id="5_7kfhy"]
+
+[node name="AboutMenu" type="Control" unique_id=49469589 node_paths=PackedStringArray("_ui_controller")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lee0o")
+_ui_controller = NodePath("SVAboutUIController")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=545259054]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=406279906]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=2070084408]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1633208069]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1527815931]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "About"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=673191235]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=184324345]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="SVAboutButtonsSelector" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer" unique_id=1435310427 node_paths=PackedStringArray("ui_controller")]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_6oyne")
+ui_controller = NodePath("../../../../../../../SVAboutUIController")
+metadata/_custom_type_script = "uid://bgpc0iy24r0jj"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1139314210]
+layout_mode = 2
+
+[node name="SVAboutSelectedTitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1792731408 node_paths=PackedStringArray("ui_controller")]
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("2_6nif1")
+ui_controller = NodePath("../../../../../../../SVAboutUIController")
+metadata/_custom_type_script = "uid://b37gjky5xxyvp"
+
+[node name="SVAboutSelectedDescriptionLabel" type="RichTextLabel" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1966185058 node_paths=PackedStringArray("ui_controller")]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+script = ExtResource("3_7kfhy")
+ui_controller = NodePath("../../../../../../../SVAboutUIController")
+open_links = true
+metadata/_custom_type_script = "uid://bg46ajnerbf57"
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1746507226]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back"
+
+[node name="SVAboutUIController" type="Node" parent="." unique_id=52605846]
+script = ExtResource("4_6nif1")
+game_info = ExtResource("5_7kfhy")
+metadata/_custom_type_script = "uid://ctfwwsw3uisos"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

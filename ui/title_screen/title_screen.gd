@@ -15,6 +15,7 @@ extends Node
 @export var _start_prompt: _StartPrompt
 @export var _main_menu: _MainMenu
 @export var _options_menu: _OptionsMenu
+@export var _about_menu: _AboutMenu
 
 
 # Signal connection
@@ -45,7 +46,8 @@ func _on_main_menu_options_pressed() -> void:
 
 # Signal connection
 func _on_main_menu_about_pressed() -> void:
-	pass # TODO
+	_main_menu.visible = false
+	_about_menu.visible = true
 
 
 # Signal connection
@@ -60,4 +62,10 @@ func _on_main_menu_quit_pressed() -> void:
 # Signal connection
 func _on_options_menu_back() -> void:
 	_options_menu.visible = false
+	_main_menu.visible = true
+
+
+# Signal connection
+func _on_about_menu_back() -> void:
+	_about_menu.visible = false
 	_main_menu.visible = true

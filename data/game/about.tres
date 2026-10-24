@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SVAboutEntryCustom" format=3 uid="uid://d752t84qip7p"]
+
+[ext_resource type="Script" uid="uid://bjgnxatvg3ldr" path="res://addons/sv_about_menu/data/sv_about_entry_custom.gd" id="1_4dgje"]
+
+[resource]
+script = ExtResource("1_4dgje")
+title = "SV Game Skeleton"
+description = "See repository for license info."
+metadata/_custom_type_script = "uid://bjgnxatvg3ldr"

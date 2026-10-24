@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://w12wh5pk7dit"]
+
+[ext_resource type="Script" uid="uid://dpm43sfe4h4kf" path="res://ui/title_screen/title_screen.gd" id="1_72buf"]
+[ext_resource type="PackedScene" uid="uid://bvgje3ijwo08c" path="res://ui/menus/start_prompt/start_prompt.tscn" id="2_rhiq2"]
+[ext_resource type="PackedScene" uid="uid://vsbniy4gppix" path="res://ui/menus/main_menu/main_menu.tscn" id="3_kp51c"]
+
+[node name="TitleScreen" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_landing_menu")]
+script = ExtResource("1_72buf")
+_start_prompt = NodePath("StartPrompt")
+_landing_menu = NodePath("LandingMenu")
+
+[node name="StartPrompt" parent="." unique_id=1681230188 instance=ExtResource("2_rhiq2")]
+
+[node name="LandingMenu" parent="." unique_id=204805460 instance=ExtResource("3_kp51c")]
+visible = false
+
+[connection signal="pressed" from="StartPrompt" to="." method="_on_start_prompt_pressed"]
+[connection signal="about_pressed" from="LandingMenu" to="." method="_on_landing_menu_about_pressed"]
+[connection signal="achievements_pressed" from="LandingMenu" to="." method="_on_landing_menu_achievements_pressed"]
+[connection signal="jukebox_pressed" from="LandingMenu" to="." method="_on_landing_menu_jukebox_pressed"]
+[connection signal="options_pressed" from="LandingMenu" to="." method="_on_landing_menu_options_pressed"]
+[connection signal="play_pressed" from="LandingMenu" to="." method="_on_landing_menu_play_pressed"]
+[connection signal="quit_pressed" from="LandingMenu" to="." method="_on_landing_menu_quit_pressed"]

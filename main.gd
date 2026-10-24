@@ -15,4 +15,4 @@ func _ready() -> void:
 
 
 func _change_to_first_scene() -> void:
-	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+	get_tree().change_scene_to_file("res://ui/title_screen/title_screen.tscn")

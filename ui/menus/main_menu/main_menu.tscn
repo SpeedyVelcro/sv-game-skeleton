@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vsbniy4gppix"]
 
-[ext_resource type="Script" uid="uid://bkba4oe3l7i7r" path="res://ui/menus/landing_menu/landing_menu.gd" id="1_8s2ne"]
+[ext_resource type="Script" uid="uid://bkba4oe3l7i7r" path="res://ui/menus/main_menu/main_menu.gd" id="1_8s2ne"]
 
 [node name="LandingMenu" type="Control" unique_id=204805460]
 layout_mode = 3

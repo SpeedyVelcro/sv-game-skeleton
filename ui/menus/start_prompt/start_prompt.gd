@@ -84,8 +84,8 @@ func deactivate(immediate: bool = false) -> void:
 
 
 # Signal connection
-func _on_animation_player_animation_changed(old_name: StringName, _new_name: StringName) -> void:
-	if old_name == _FLASH_ANIMATION_NAME:
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == _FLASH_ANIMATION_NAME:
 		# We manually handle looping so we can stop the animation exactly between
 		# loops if the prompt is no longer activated.
 		if _active:

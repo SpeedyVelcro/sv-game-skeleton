@@ -82,5 +82,5 @@ libraries/ = SubResource("AnimationLibrary_82ijd")
 [node name="DelayTimer" type="Timer" parent="." unique_id=1184733202]
 one_shot = true
 
-[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="DelayTimer" to="." method="_on_delay_timer_timeout"]

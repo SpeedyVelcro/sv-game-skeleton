@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bvgje3ijwo08c" path="res://ui/menus/start_prompt/start_prompt.tscn" id="1_uhj5c"]
 [ext_resource type="PackedScene" uid="uid://vsbniy4gppix" path="res://ui/menus/landing_menu/landing_menu.tscn" id="3_omy8q"]
 
-[node name="MainMenu" type="Node" unique_id=1194125216]
+[node name="MainMenu" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_landing_menu")]
 script = ExtResource("1_mu8pm")
+_start_prompt = NodePath("StartPrompt")
+_landing_menu = NodePath("LandingMenu")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1401287939]
 anchors_preset = 15

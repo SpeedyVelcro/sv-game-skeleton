@@ -9,4 +9,10 @@ extends Node
 
 # Override
 func _ready() -> void:
-	pass # TODO: Do any required initial setup and switch to the first scene.
+	# TODO: Do any required initial setup.
+	
+	_change_to_first_scene.call_deferred()
+
+
+func _change_to_first_scene() -> void:
+	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")

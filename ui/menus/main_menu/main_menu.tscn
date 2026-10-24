@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkba4oe3l7i7r" path="res://ui/menus/main_menu/main_menu.gd" id="1_8s2ne"]
 
-[node name="LandingMenu" type="Control" unique_id=204805460]
+[node name="MainMenu" type="Control" unique_id=204805460]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

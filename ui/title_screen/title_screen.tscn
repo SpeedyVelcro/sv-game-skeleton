@@ -7,17 +7,17 @@
 [node name="TitleScreen" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_landing_menu")]
 script = ExtResource("1_72buf")
 _start_prompt = NodePath("StartPrompt")
-_landing_menu = NodePath("LandingMenu")
+_landing_menu = NodePath("MainMenu")
 
 [node name="StartPrompt" parent="." unique_id=1681230188 instance=ExtResource("2_rhiq2")]
 
-[node name="LandingMenu" parent="." unique_id=204805460 instance=ExtResource("3_kp51c")]
+[node name="MainMenu" parent="." unique_id=204805460 instance=ExtResource("3_kp51c")]
 visible = false
 
 [connection signal="pressed" from="StartPrompt" to="." method="_on_start_prompt_pressed"]
-[connection signal="about_pressed" from="LandingMenu" to="." method="_on_landing_menu_about_pressed"]
-[connection signal="achievements_pressed" from="LandingMenu" to="." method="_on_landing_menu_achievements_pressed"]
-[connection signal="jukebox_pressed" from="LandingMenu" to="." method="_on_landing_menu_jukebox_pressed"]
-[connection signal="options_pressed" from="LandingMenu" to="." method="_on_landing_menu_options_pressed"]
-[connection signal="play_pressed" from="LandingMenu" to="." method="_on_landing_menu_play_pressed"]
-[connection signal="quit_pressed" from="LandingMenu" to="." method="_on_landing_menu_quit_pressed"]
+[connection signal="about_pressed" from="MainMenu" to="." method="_on_landing_menu_about_pressed"]
+[connection signal="achievements_pressed" from="MainMenu" to="." method="_on_landing_menu_achievements_pressed"]
+[connection signal="jukebox_pressed" from="MainMenu" to="." method="_on_landing_menu_jukebox_pressed"]
+[connection signal="options_pressed" from="MainMenu" to="." method="_on_landing_menu_options_pressed"]
+[connection signal="play_pressed" from="MainMenu" to="." method="_on_landing_menu_play_pressed"]
+[connection signal="quit_pressed" from="MainMenu" to="." method="_on_landing_menu_quit_pressed"]

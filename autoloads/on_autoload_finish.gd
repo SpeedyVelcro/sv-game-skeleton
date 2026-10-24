@@ -2,7 +2,7 @@ class_name _OnAutoloadFinish
 extends Node
 ## Final autoload used for game initialization.
 ##
-## Use this autoload's [method _init] method for initialization tasks that
+## Use this autoload's [method _ready] method for initialization tasks that
 ## must be run whenever the game is started, even if it is started from the
 ## "Run Current Scene" button in the editor. Tasks that only need to run when
 ## the game is started normally are better handled in the main scene.
@@ -10,7 +10,8 @@ extends Node
 ## This autoload should always be placed at the end of the autoload list.
 
 
-func _init() -> void:
+# Override
+func _ready() -> void:
 	if OS.has_feature("web"):
 		var config := OptionsConfigProvider.get_config()
 		

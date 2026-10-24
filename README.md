@@ -47,8 +47,8 @@ git push origin tag v0.0.0
 ```
 
 ## License
-Original work in this repository is dual-licensed under [MIT](LICENSES/MIT.txt)
-and [Unlicense](LICENSES/Unlicense.txt). You may choose which terms under which
+Original work in this repository is dual-licensed under [MIT](LICENSE-MIT.txt)
+and [Unlicense](LICENSE-Unlicense.txt). You may choose which terms under which
 to use the original work in this repository.
 
 The repo is licensed this way because - being a template where you are expected 

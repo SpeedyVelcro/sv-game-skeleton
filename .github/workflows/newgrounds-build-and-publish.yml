@@ -83,11 +83,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v7
-      - name: Inject Secrets
-        uses: "./.github/actions/inject-newgrounds-secrets"
-        with:
-          app-id: ${{ secrets.NEWGROUNDS_APP_ID }}
-          aes-128-encryption-key: ${{ secrets.NEWGROUNDS_AES_128_ENCRYPTION_KEY }}
       - name: Install Godot Engine
         uses: "./.github/actions/install-godot"
         with:
@@ -110,7 +105,12 @@ jobs:
         run: |
           ./inject-pck-encryption-key.sh newgrounds ${{ secrets.PCK_ENCRYPTION_KEY }}
       - name: Build project
-        run: make newgrounds
+        run: |
+          # jefvel's newgrounds plugin automatically picks up these environment
+          # variables and exports them into the PCK.
+          export NEWGROUNDS_APP_ID="${{ secrets.NEWGROUNDS_APP_ID }}"
+          export NEWGROUNDS_AES_KEY="${{ secrets.NEWGROUNDS_AES_128_ENCRYPTION_KEY }}"
+          make newgrounds
       - name: Package
         id: package
         run: |

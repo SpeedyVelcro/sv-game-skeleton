@@ -26,8 +26,10 @@ func _init() -> void:
 	OptionsLifecycle.start_up()
 	
 	if OS.has_feature("newgrounds"):
-		ProjectSettings.set_setting("newgrounds.io/app_id", Secrets.NEWGROUNDS_APP_ID)
-		ProjectSettings.set_setting("newgrounds.io/AES-128_key", Secrets.NEWGROUNDS_AES_128_ENCRYPTION_KEY)
+		# Secrets should have already been included in the PCK by setting
+		# environment variables during export. The newgrounds plugin
+		# automatically picks them up, so unlike the Game Jolt addon we don't
+		# need to do our own secrets management.
 		NG.init()
 	
 	if OS.has_feature("game_jolt"):

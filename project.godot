@@ -63,6 +63,8 @@ theme/custom="uid://mcis4ddi1k7q"
 [newgrounds.io]
 
 opened_getting_started_page=true
+last_ids_file_path="res://imported_newgrounds_medals/newgrounds_ids.gd"
+auto_init=false
 
 [physics]
 

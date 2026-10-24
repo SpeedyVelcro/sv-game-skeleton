@@ -37,11 +37,17 @@ extends Object
 ## Newgrounds app ID. The app ID includes a small secret after the colon (though
 ## I assume it's primarily there to help games that don't support encryption),
 ## so it is indeed important to protect believe it or not.
+##
+## @deprecated: The Newgrounds plugin now picks up credentials automatically
+## from environment variables at export-time.
 const NEWGROUNDS_APP_ID := "replace_me_newgrounds_app_id"
 
 ## Newgrounds AES 128 encryption key. You must provide this as it is required
 ## by the plugin, and you must enable AES 128 encryption in your game's API
 ## tools page..
+##
+## @deprecated: The Newgrounds plugin now picks up credentials automatically
+## from environment variables at export-time.
 const NEWGROUNDS_AES_128_ENCRYPTION_KEY := "replace_me_newgrounds_aes_128_encryption_key"
 
 ## Game Jolt private key. Obtain this from your game's API settings page.

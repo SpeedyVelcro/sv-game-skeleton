@@ -5,12 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://bvgje3ijwo08c" path="res://ui/menus/start_prompt/start_prompt.tscn" id="2_rhiq2"]
 [ext_resource type="PackedScene" uid="uid://vsbniy4gppix" path="res://ui/menus/main_menu/main_menu.tscn" id="3_kp51c"]
 [ext_resource type="PackedScene" uid="uid://dyuls84burhpn" path="res://ui/menus/options_menu/options_menu.tscn" id="4_rhiq2"]
+[ext_resource type="PackedScene" uid="uid://bant77aovccpl" path="res://ui/menus/achievements_menu/achievements_menu.tscn" id="5_ca08b"]
 [ext_resource type="PackedScene" uid="uid://cmb6dbe4e6wtk" path="res://ui/menus/about_menu/about_menu.tscn" id="6_2er51"]
 
-[node name="TitleScreen" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_main_menu", "_options_menu", "_about_menu")]
+[node name="TitleScreen" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_main_menu", "_achievements_menu", "_options_menu", "_about_menu")]
 script = ExtResource("1_72buf")
 _start_prompt = NodePath("SubViewportContainer/UIScalingSubViewport/StartPrompt")
 _main_menu = NodePath("SubViewportContainer/UIScalingSubViewport/MainMenu")
+_achievements_menu = NodePath("SubViewportContainer/UIScalingSubViewport/AchievementsMenu")
 _options_menu = NodePath("SubViewportContainer/UIScalingSubViewport/OptionsMenu")
 _about_menu = NodePath("SubViewportContainer/UIScalingSubViewport/AboutMenu")
 
@@ -22,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="UIScalingSubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1998121403]
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
@@ -31,6 +34,9 @@ metadata/_custom_type_script = "uid://q556kuuqjbtq"
 [node name="StartPrompt" parent="SubViewportContainer/UIScalingSubViewport" unique_id=1681230188 instance=ExtResource("2_rhiq2")]
 
 [node name="MainMenu" parent="SubViewportContainer/UIScalingSubViewport" unique_id=204805460 instance=ExtResource("3_kp51c")]
+visible = false
+
+[node name="AchievementsMenu" parent="SubViewportContainer/UIScalingSubViewport" unique_id=478904815 instance=ExtResource("5_ca08b")]
 visible = false
 
 [node name="OptionsMenu" parent="SubViewportContainer/UIScalingSubViewport" unique_id=50247623 instance=ExtResource("4_rhiq2")]
@@ -46,5 +52,6 @@ visible = false
 [connection signal="options_pressed" from="SubViewportContainer/UIScalingSubViewport/MainMenu" to="." method="_on_main_menu_options_pressed"]
 [connection signal="play_pressed" from="SubViewportContainer/UIScalingSubViewport/MainMenu" to="." method="_on_main_menu_play_pressed"]
 [connection signal="quit_pressed" from="SubViewportContainer/UIScalingSubViewport/MainMenu" to="." method="_on_main_menu_quit_pressed"]
+[connection signal="back" from="SubViewportContainer/UIScalingSubViewport/AchievementsMenu" to="." method="_on_achievements_menu_back"]
 [connection signal="back" from="SubViewportContainer/UIScalingSubViewport/OptionsMenu" to="." method="_on_options_menu_back"]
 [connection signal="back" from="SubViewportContainer/UIScalingSubViewport/AboutMenu" to="." method="_on_about_menu_back"]

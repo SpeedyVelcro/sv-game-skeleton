@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bant77aovccpl"]
+
+[ext_resource type="Script" uid="uid://cwisjat58jhfv" path="res://ui/menus/achievements_menu/achievements_menu.gd" id="1_0r6ul"]
+[ext_resource type="PackedScene" uid="uid://3frhprt6v3o6" path="res://addons/sv_achievements/ui/achievement_list_ui/achievement_list_ui.tscn" id="1_21v5y"]
+
+[node name="AchievementsMenu" type="Control" unique_id=478904815 node_paths=PackedStringArray("_scroll_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0r6ul")
+_scroll_container = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=988384216]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=939955796]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1816362300]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=2083833661]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=907683066]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Achievements"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=921394472]
+custom_minimum_size = Vector2(640, 384)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="AchievementListUI" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=40048756 instance=ExtResource("1_21v5y")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+show_separators = true
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1018190287]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

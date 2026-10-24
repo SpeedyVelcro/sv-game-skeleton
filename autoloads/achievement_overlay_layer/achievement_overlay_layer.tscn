@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://de3xh1kcifin1"]
+
+[ext_resource type="Script" uid="uid://q556kuuqjbtq" path="res://addons/sv_options_menu/ui/ui_scaling_sub_viewport/ui_scaling_sub_viewport.gd" id="1_byxkm"]
+[ext_resource type="PackedScene" uid="uid://cnf4r72kds3xj" path="res://addons/sv_achievements/ui/achievement_overlay/achievement_overlay.tscn" id="2_svr8l"]
+
+[node name="AchievementOverlayLayer" type="CanvasLayer" unique_id=1208508047]
+layer = 100000
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=312919703]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UIScalingSubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1798589110]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("1_byxkm")
+metadata/_custom_type_script = "uid://q556kuuqjbtq"
+
+[node name="AchievementOverlay" parent="SubViewportContainer/UIScalingSubViewport" unique_id=1634175387 instance=ExtResource("2_svr8l")]

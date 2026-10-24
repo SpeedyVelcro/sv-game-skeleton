@@ -14,6 +14,7 @@ extends Node
 @export_group("Internal")
 @export var _start_prompt: _StartPrompt
 @export var _main_menu: _MainMenu
+@export var _achievements_menu: _AchievementsMenu
 @export var _options_menu: _OptionsMenu
 @export var _about_menu: _AboutMenu
 
@@ -30,7 +31,8 @@ func _on_main_menu_play_pressed() -> void:
 
 # Signal connection
 func _on_main_menu_achievements_pressed() -> void:
-	pass # TODO
+	_main_menu.visible = false
+	_achievements_menu.visible = true
 
 
 # Signal connection
@@ -69,3 +71,10 @@ func _on_options_menu_back() -> void:
 func _on_about_menu_back() -> void:
 	_about_menu.visible = false
 	_main_menu.visible = true
+
+
+# Signal connection
+func _on_achievements_menu_back() -> void:
+	_achievements_menu.visible = false
+	_main_menu.visible = true
+	

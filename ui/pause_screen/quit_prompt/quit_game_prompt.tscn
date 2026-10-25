@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ciynbd7mhdmx2"]
+
+[ext_resource type="PackedScene" uid="uid://dl1byq3ll64h3" path="res://ui/pause_screen/quit_prompt/quit_prompt.tscn" id="1_tii25"]
+
+[node name="QuitGamePrompt" unique_id=338836740 instance=ExtResource("1_tii25")]
+
+[node name="TitleLabel" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(736771572) index="0" unique_id=1138632594]
+text = "Exit Game"
+
+[node name="DescriptionLabel" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(736771572) index="1" unique_id=953254303]
+text = "Are you sure you want to exit the game?"

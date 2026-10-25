@@ -8,6 +8,14 @@ signal back
 @export var _ui_controller: SVAboutUIController
 
 
+# Override
+func _input(event: InputEvent) -> void:
+	if visible:
+		if event.is_action_pressed("ui_cancel"):
+			back.emit()
+			get_viewport().set_input_as_handled()
+
+
 # Signal connection
 func _on_visibility_changed() -> void:
 	if visible:

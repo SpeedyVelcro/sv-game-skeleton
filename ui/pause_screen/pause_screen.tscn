@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://4m77f1te5jt5"]
+
+[ext_resource type="Script" uid="uid://ct3dmf4u0jtja" path="res://ui/pause_screen/pause_screen.gd" id="1_bupvi"]
+[ext_resource type="Script" uid="uid://q556kuuqjbtq" path="res://addons/sv_options_menu/ui/ui_scaling_sub_viewport/ui_scaling_sub_viewport.gd" id="2_hsda3"]
+[ext_resource type="PackedScene" uid="uid://bfi6u4vcsm2qd" path="res://ui/menus/pause_menu/pause_menu.tscn" id="3_t2ogi"]
+[ext_resource type="PackedScene" uid="uid://bant77aovccpl" path="res://ui/menus/achievements_menu/achievements_menu.tscn" id="4_nlxpq"]
+[ext_resource type="PackedScene" uid="uid://dyuls84burhpn" path="res://ui/menus/options_menu/options_menu.tscn" id="5_s4jtk"]
+[ext_resource type="PackedScene" uid="uid://cnrwyeo6tc0j1" path="res://ui/pause_screen/quit_prompt/quit_to_menu_prompt.tscn" id="6_fpjie"]
+[ext_resource type="PackedScene" uid="uid://ciynbd7mhdmx2" path="res://ui/pause_screen/quit_prompt/quit_game_prompt.tscn" id="7_n014p"]
+
+[node name="PauseScreen" type="Node" unique_id=82003333 node_paths=PackedStringArray("_pause_menu", "_achievements_menu", "_options_menu", "_quit_to_menu_prompt", "_quit_game_prompt")]
+process_mode = 3
+script = ExtResource("1_bupvi")
+_pause_menu = NodePath("CanvasLayer/SubViewportContainer/UIScalingSubViewport/PauseMenu")
+_achievements_menu = NodePath("CanvasLayer/SubViewportContainer/UIScalingSubViewport/AchievementsMenu")
+_options_menu = NodePath("CanvasLayer/SubViewportContainer/UIScalingSubViewport/OptionsMenu")
+_quit_to_menu_prompt = NodePath("CanvasLayer/SubViewportContainer/UIScalingSubViewport/QuitToMenuPrompt")
+_quit_game_prompt = NodePath("CanvasLayer/SubViewportContainer/UIScalingSubViewport/QuitGamePrompt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=175959011]
+layer = 90000
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=179475285]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIScalingSubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=1436873532]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("2_hsda3")
+metadata/_custom_type_script = "uid://q556kuuqjbtq"
+
+[node name="PauseMenu" parent="CanvasLayer/SubViewportContainer/UIScalingSubViewport" unique_id=1553761192 instance=ExtResource("3_t2ogi")]
+visible = false
+
+[node name="AchievementsMenu" parent="CanvasLayer/SubViewportContainer/UIScalingSubViewport" unique_id=478904815 instance=ExtResource("4_nlxpq")]
+visible = false
+
+[node name="OptionsMenu" parent="CanvasLayer/SubViewportContainer/UIScalingSubViewport" unique_id=50247623 instance=ExtResource("5_s4jtk")]
+visible = false
+
+[node name="QuitToMenuPrompt" parent="CanvasLayer/SubViewportContainer/UIScalingSubViewport" unique_id=338836740 instance=ExtResource("6_fpjie")]
+visible = false
+
+[node name="QuitGamePrompt" parent="CanvasLayer/SubViewportContainer/UIScalingSubViewport" unique_id=1487351945 instance=ExtResource("7_n014p")]
+visible = false
+
+[connection signal="achievements_pressed" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/PauseMenu" to="." method="_on_pause_menu_achievements_pressed"]
+[connection signal="options_pressed" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/PauseMenu" to="." method="_on_pause_menu_options_pressed"]
+[connection signal="quit_game_pressed" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/PauseMenu" to="." method="_on_pause_menu_quit_game_pressed"]
+[connection signal="quit_to_menu_pressed" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/PauseMenu" to="." method="_on_pause_menu_quit_to_menu_pressed"]
+[connection signal="resume" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/PauseMenu" to="." method="_on_pause_menu_resume"]
+[connection signal="back" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/AchievementsMenu" to="." method="_on_achievements_menu_back"]
+[connection signal="back" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/OptionsMenu" to="." method="_on_options_menu_back"]
+[connection signal="no_pressed" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/QuitToMenuPrompt" to="." method="_on_quit_to_menu_prompt_no_pressed"]
+[connection signal="yes_pressed" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/QuitToMenuPrompt" to="." method="_on_quit_to_menu_prompt_yes_pressed"]
+[connection signal="no_pressed" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/QuitGamePrompt" to="." method="_on_quit_game_prompt_no_pressed"]
+[connection signal="yes_pressed" from="CanvasLayer/SubViewportContainer/UIScalingSubViewport/QuitGamePrompt" to="." method="_on_quit_game_prompt_yes_pressed"]

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dl1byq3ll64h3"]
+
+[ext_resource type="Script" uid="uid://8b7r8a2ftu3e" path="res://ui/pause_screen/quit_prompt/quit_prompt.gd" id="1_87bdy"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_nlxpq"]
+action = &"ui_accept"
+
+[sub_resource type="Shortcut" id="Shortcut_t2ogi"]
+events = [SubResource("InputEventAction_nlxpq")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fpjie"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_s4jtk"]
+events = [SubResource("InputEventAction_fpjie")]
+
+[node name="QuitPrompt" type="Control" unique_id=338836740]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87bdy")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=922085460]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1588358383]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1057872437]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=736771572]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1138632594]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=953254303]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Are you sure you want to quit?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1123921902]
+custom_minimum_size = Vector2(144, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+
+[node name="YesButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=266444696]
+layout_mode = 2
+size_flags_horizontal = 3
+shortcut = SubResource("Shortcut_t2ogi")
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1808929743]
+layout_mode = 2
+size_flags_horizontal = 3
+shortcut = SubResource("Shortcut_s4jtk")
+text = "No"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

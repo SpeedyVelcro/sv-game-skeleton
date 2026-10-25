@@ -15,6 +15,7 @@ extends Node
 @export var _start_prompt: _StartPrompt
 @export var _main_menu: _MainMenu
 @export var _achievements_menu: _AchievementsMenu
+@export var _jukebox_menu: _JukeboxMenu
 @export var _options_menu: _OptionsMenu
 @export var _about_menu: _AboutMenu
 
@@ -37,7 +38,8 @@ func _on_main_menu_achievements_pressed() -> void:
 
 # Signal connection
 func _on_main_menu_jukebox_pressed() -> void:
-	pass # TODO
+	_main_menu.visible = false
+	_jukebox_menu.visible = true
 
 
 # Signal connection
@@ -77,4 +79,9 @@ func _on_about_menu_back() -> void:
 func _on_achievements_menu_back() -> void:
 	_achievements_menu.visible = false
 	_main_menu.visible = true
-	
+
+
+# Signal connection
+func _on_jukebox_menu_back() -> void:
+	_jukebox_menu.visible = false
+	_main_menu.visible = true

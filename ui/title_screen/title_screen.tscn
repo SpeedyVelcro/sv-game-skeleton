@@ -7,12 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://dyuls84burhpn" path="res://ui/menus/options_menu/options_menu.tscn" id="4_rhiq2"]
 [ext_resource type="PackedScene" uid="uid://bant77aovccpl" path="res://ui/menus/achievements_menu/achievements_menu.tscn" id="5_ca08b"]
 [ext_resource type="PackedScene" uid="uid://cmb6dbe4e6wtk" path="res://ui/menus/about_menu/about_menu.tscn" id="6_2er51"]
+[ext_resource type="PackedScene" uid="uid://pnlb4a2sddoy" path="res://ui/menus/jukebox_menu/jukebox_menu.tscn" id="6_lgnx5"]
 
-[node name="TitleScreen" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_main_menu", "_achievements_menu", "_options_menu", "_about_menu")]
+[node name="TitleScreen" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_main_menu", "_achievements_menu", "_jukebox_menu", "_options_menu", "_about_menu")]
 script = ExtResource("1_72buf")
 _start_prompt = NodePath("SubViewportContainer/UIScalingSubViewport/StartPrompt")
 _main_menu = NodePath("SubViewportContainer/UIScalingSubViewport/MainMenu")
 _achievements_menu = NodePath("SubViewportContainer/UIScalingSubViewport/AchievementsMenu")
+_jukebox_menu = NodePath("SubViewportContainer/UIScalingSubViewport/JukeboxMenu")
 _options_menu = NodePath("SubViewportContainer/UIScalingSubViewport/OptionsMenu")
 _about_menu = NodePath("SubViewportContainer/UIScalingSubViewport/AboutMenu")
 
@@ -39,6 +41,9 @@ visible = false
 [node name="AchievementsMenu" parent="SubViewportContainer/UIScalingSubViewport" unique_id=478904815 instance=ExtResource("5_ca08b")]
 visible = false
 
+[node name="JukeboxMenu" parent="SubViewportContainer/UIScalingSubViewport" unique_id=978272770 instance=ExtResource("6_lgnx5")]
+visible = false
+
 [node name="OptionsMenu" parent="SubViewportContainer/UIScalingSubViewport" unique_id=50247623 instance=ExtResource("4_rhiq2")]
 visible = false
 
@@ -53,5 +58,6 @@ visible = false
 [connection signal="play_pressed" from="SubViewportContainer/UIScalingSubViewport/MainMenu" to="." method="_on_main_menu_play_pressed"]
 [connection signal="quit_pressed" from="SubViewportContainer/UIScalingSubViewport/MainMenu" to="." method="_on_main_menu_quit_pressed"]
 [connection signal="back" from="SubViewportContainer/UIScalingSubViewport/AchievementsMenu" to="." method="_on_achievements_menu_back"]
+[connection signal="back" from="SubViewportContainer/UIScalingSubViewport/JukeboxMenu" to="." method="_on_jukebox_menu_back"]
 [connection signal="back" from="SubViewportContainer/UIScalingSubViewport/OptionsMenu" to="." method="_on_options_menu_back"]
 [connection signal="back" from="SubViewportContainer/UIScalingSubViewport/AboutMenu" to="." method="_on_about_menu_back"]

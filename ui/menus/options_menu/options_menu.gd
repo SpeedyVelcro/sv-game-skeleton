@@ -6,6 +6,14 @@ signal back
 
 @export_group("Internal")
 @export var _tab_container: TabContainer
+@export var _social_tab: Control
+
+
+# Override
+func _ready() -> void:
+	var social_idx := _tab_container.get_tab_idx_from_control(_social_tab)
+	_tab_container.set_tab_disabled(social_idx, not OS.has_feature("game_jolt"))
+	_tab_container.set_tab_hidden(social_idx, not OS.has_feature("game_jolt"))
 
 
 # Override

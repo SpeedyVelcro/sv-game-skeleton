@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://driwik6v0ewgj"]
+
+[ext_resource type="Script" uid="uid://dh751bewf8ds2" path="res://ui/menus/game_jolt_menu/login/game_jolt_login.gd" id="1_dg4of"]
+
+[sub_resource type="Animation" id="1"]
+resource_name = "login_fail"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FailLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_von7g"]
+_data = {
+&"login_fail": SubResource("1")
+}
+
+[node name="GameJoltLogin" type="MarginContainer" unique_id=1337622181 node_paths=PackedStringArray("_username_line_edit", "_token_line_edit", "_login_container", "_logout_container", "_fail_label", "_login_fail_animation_player", "_login_button", "_auto_login_button", "_logout_button")]
+offset_right = 242.0
+offset_bottom = 66.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_dg4of")
+_username_line_edit = NodePath("LoginVBoxContainer/HBoxContainer/UsernameLineEdit")
+_token_line_edit = NodePath("LoginVBoxContainer/HBoxContainer/TokenLineEdit")
+_login_container = NodePath("LoginVBoxContainer")
+_logout_container = NodePath("LogoutVBoxContainer")
+_fail_label = NodePath("LoginVBoxContainer/HBoxContainer2/FailLabel")
+_login_fail_animation_player = NodePath("LoginVBoxContainer/HBoxContainer2/LoginFailAnimationPlayer")
+_login_button = NodePath("LoginVBoxContainer/HBoxContainer2/LoginButton")
+_auto_login_button = NodePath("LoginVBoxContainer/HBoxContainer2/AutoLoginButton")
+_logout_button = NodePath("LogoutVBoxContainer/LogoutButton")
+
+[node name="LoginVBoxContainer" type="VBoxContainer" parent="." unique_id=499177931]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoginVBoxContainer" unique_id=818811796]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UsernameLineEdit" type="LineEdit" parent="LoginVBoxContainer/HBoxContainer" unique_id=392255087]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Username"
+
+[node name="TokenLineEdit" type="LineEdit" parent="LoginVBoxContainer/HBoxContainer" unique_id=1595964366]
+custom_minimum_size = Vector2(114, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.66
+placeholder_text = "Game Token"
+secret = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="LoginVBoxContainer" unique_id=1740780621]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LoginButton" type="Button" parent="LoginVBoxContainer/HBoxContainer2" unique_id=1092071815]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Log In"
+
+[node name="AutoLoginButton" type="Button" parent="LoginVBoxContainer/HBoxContainer2" unique_id=1341816539]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+text = "Log In (Auto)"
+
+[node name="FailLabel" type="Label" parent="LoginVBoxContainer/HBoxContainer2" unique_id=1371775114]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Login Fail"
+vertical_alignment = 1
+
+[node name="LoginFailAnimationPlayer" type="AnimationPlayer" parent="LoginVBoxContainer/HBoxContainer2" unique_id=1765822881]
+libraries/ = SubResource("AnimationLibrary_von7g")
+
+[node name="LogoutVBoxContainer" type="VBoxContainer" parent="." unique_id=131108809]
+visible = false
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LogoutVBoxContainer" unique_id=1906051060]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Login Successful"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LogoutButton" type="Button" parent="LogoutVBoxContainer" unique_id=1595266806]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Log Out"
+
+[connection signal="pressed" from="LoginVBoxContainer/HBoxContainer2/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="LoginVBoxContainer/HBoxContainer2/AutoLoginButton" to="." method="_on_auto_login_button_pressed"]
+[connection signal="pressed" from="LogoutVBoxContainer/LogoutButton" to="." method="_on_logout_button_pressed"]

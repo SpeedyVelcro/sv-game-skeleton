@@ -13,6 +13,7 @@ extends Node
 
 @export_group("Internal")
 @export var _start_prompt: _StartPrompt
+@export var _game_jolt_menu: _GameJoltMenu
 @export var _main_menu: _MainMenu
 @export var _achievements_menu: _AchievementsMenu
 @export var _jukebox_menu: _JukeboxMenu
@@ -22,6 +23,15 @@ extends Node
 
 # Signal connection
 func _on_start_prompt_pressed() -> void:
+	if OS.has_feature("game_jolt") and not GameJoltIntegration.integration_enabled:
+		_game_jolt_menu.visible = true
+	else:
+		_main_menu.visible = true
+
+
+# Signal connection
+func _on_game_jolt_menu_close() -> void:
+	_game_jolt_menu.visible = false
 	_main_menu.visible = true
 
 

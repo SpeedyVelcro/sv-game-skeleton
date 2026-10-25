@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://rjgppe3bqk43"]
+
+[ext_resource type="Script" uid="uid://bide2r162ikew" path="res://ui/menus/game_jolt_menu/game_jolt_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://driwik6v0ewgj" path="res://ui/menus/game_jolt_menu/login/game_jolt_login.tscn" id="1_1yhq3"]
+
+[node name="GameJoltMenu" type="Control" unique_id=102143615 node_paths=PackedStringArray("_continue_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+_continue_button = NodePath("CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer/ContinueButton")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1064513379]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameJoltMenu" type="PanelContainer" parent="CenterContainer" unique_id=1110790137]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/GameJoltMenu" unique_id=265434628]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/GameJoltMenu/MarginContainer" unique_id=365137165]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer" unique_id=1148544071]
+layout_mode = 2
+text = "Game Jolt"
+horizontal_alignment = 1
+
+[node name="InstructionsLabel" type="Label" parent="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer" unique_id=818636784]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "You are playing the Game Jolt version! Please log in to unlock trophies."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TokenInstructionsLabel" type="Label" parent="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer" unique_id=537727990]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "Get your Game Token by clicking your profile picture on Game Jolt and selecting \"Game Token\" in the dropdown."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="GameJoltLogin" parent="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer" unique_id=1337622181 instance=ExtResource("1_1yhq3")]
+layout_mode = 2
+
+[node name="SkipInstructionsLabel" type="Label" parent="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer" unique_id=1490232423]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "If you choose to skip this step you can always log in through the options menu."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AutoInstructionsLabel" type="Label" parent="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer" unique_id=15973349]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "You can use \"Log In (Auto)\" to automatically fetch your login details when playing on web or via the Game Jolt client."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer" unique_id=1361917396]
+custom_minimum_size = Vector2(96, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Skip"
+
+[connection signal="showing_login" from="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer/GameJoltLogin" to="." method="_on_game_jolt_login_showing_login"]
+[connection signal="showing_logout" from="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer/GameJoltLogin" to="." method="_on_game_jolt_login_showing_logout"]
+[connection signal="pressed" from="CenterContainer/GameJoltMenu/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -4,14 +4,16 @@
 [ext_resource type="Script" uid="uid://q556kuuqjbtq" path="res://addons/sv_options_menu/ui/ui_scaling_sub_viewport/ui_scaling_sub_viewport.gd" id="2_kp51c"]
 [ext_resource type="PackedScene" uid="uid://bvgje3ijwo08c" path="res://ui/menus/start_prompt/start_prompt.tscn" id="2_rhiq2"]
 [ext_resource type="PackedScene" uid="uid://vsbniy4gppix" path="res://ui/menus/main_menu/main_menu.tscn" id="3_kp51c"]
+[ext_resource type="PackedScene" uid="uid://rjgppe3bqk43" path="res://ui/menus/game_jolt_menu/game_jolt_menu.tscn" id="4_1djn3"]
 [ext_resource type="PackedScene" uid="uid://dyuls84burhpn" path="res://ui/menus/options_menu/options_menu.tscn" id="4_rhiq2"]
 [ext_resource type="PackedScene" uid="uid://bant77aovccpl" path="res://ui/menus/achievements_menu/achievements_menu.tscn" id="5_ca08b"]
 [ext_resource type="PackedScene" uid="uid://cmb6dbe4e6wtk" path="res://ui/menus/about_menu/about_menu.tscn" id="6_2er51"]
 [ext_resource type="PackedScene" uid="uid://pnlb4a2sddoy" path="res://ui/menus/jukebox_menu/jukebox_menu.tscn" id="6_lgnx5"]
 
-[node name="TitleScreen" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_main_menu", "_achievements_menu", "_jukebox_menu", "_options_menu", "_about_menu")]
+[node name="TitleScreen" type="Node" unique_id=1194125216 node_paths=PackedStringArray("_start_prompt", "_game_jolt_menu", "_main_menu", "_achievements_menu", "_jukebox_menu", "_options_menu", "_about_menu")]
 script = ExtResource("1_72buf")
 _start_prompt = NodePath("SubViewportContainer/UIScalingSubViewport/StartPrompt")
+_game_jolt_menu = NodePath("SubViewportContainer/UIScalingSubViewport/GameJoltMenu")
 _main_menu = NodePath("SubViewportContainer/UIScalingSubViewport/MainMenu")
 _achievements_menu = NodePath("SubViewportContainer/UIScalingSubViewport/AchievementsMenu")
 _jukebox_menu = NodePath("SubViewportContainer/UIScalingSubViewport/JukeboxMenu")
@@ -35,6 +37,9 @@ metadata/_custom_type_script = "uid://q556kuuqjbtq"
 
 [node name="StartPrompt" parent="SubViewportContainer/UIScalingSubViewport" unique_id=1681230188 instance=ExtResource("2_rhiq2")]
 
+[node name="GameJoltMenu" parent="SubViewportContainer/UIScalingSubViewport" unique_id=102143615 instance=ExtResource("4_1djn3")]
+visible = false
+
 [node name="MainMenu" parent="SubViewportContainer/UIScalingSubViewport" unique_id=204805460 instance=ExtResource("3_kp51c")]
 visible = false
 
@@ -51,6 +56,7 @@ visible = false
 visible = false
 
 [connection signal="pressed" from="SubViewportContainer/UIScalingSubViewport/StartPrompt" to="." method="_on_start_prompt_pressed"]
+[connection signal="close" from="SubViewportContainer/UIScalingSubViewport/GameJoltMenu" to="." method="_on_game_jolt_menu_close"]
 [connection signal="about_pressed" from="SubViewportContainer/UIScalingSubViewport/MainMenu" to="." method="_on_main_menu_about_pressed"]
 [connection signal="achievements_pressed" from="SubViewportContainer/UIScalingSubViewport/MainMenu" to="." method="_on_main_menu_achievements_pressed"]
 [connection signal="jukebox_pressed" from="SubViewportContainer/UIScalingSubViewport/MainMenu" to="." method="_on_main_menu_jukebox_pressed"]

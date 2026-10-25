@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cjdxuubn1ftat"]
+
+[ext_resource type="Script" uid="uid://ceoyw614sfgm8" path="res://autoloads/game_jolt_integration/game_jolt_integration.gd" id="2"]
+
+[node name="GameJoltIntegration" type="Node" unique_id=1797462144 node_paths=PackedStringArray("_ping_timer")]
+script = ExtResource("2")
+_ping_timer = NodePath("PingTimer")
+
+[node name="PingTimer" type="Timer" parent="." unique_id=123765092]
+wait_time = 30.0
+
+[connection signal="timeout" from="PingTimer" to="." method="_on_ping_timer_timeout"]

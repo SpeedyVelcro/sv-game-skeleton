@@ -47,5 +47,8 @@ func _ready() -> void:
 	
 	if OS.has_feature("game_jolt"):
 		GameJolt.private_key = Secrets.GAME_JOLT_PRIVATE_KEY
+		
+		if GameJoltIntegration.can_auto_login():
+			GameJoltIntegration.login_auto()
 	
 	# TODO: Perform any other game initialization tasks
